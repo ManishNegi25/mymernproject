@@ -18,7 +18,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("https://mymernproject-4cdy.vercel.app/", reservationRouter);
+app.use("https://mymernproject-4cdy.vercel.app/api/v1/reservation", reservationRouter);
 app.get("/", (req, res, next)=>{return res.status(200).json({
   success: true,
   message: "HELLO WORLD AGAIN"
