@@ -9,12 +9,16 @@ const app = express();
 dotenv.config({ path: "./config/config.env" });
 
 app.use(
-  cors()
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["POST"],
+    credentials: true,
+  })
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("https://mymernproject-4cdy.vercel.app/api/v1/reservation", reservationRouter);
+app.use("https://mymernproject-4cdy.vercel.app/", reservationRouter);
 app.get("/", (req, res, next)=>{return res.status(200).json({
   success: true,
   message: "HELLO WORLD AGAIN"
