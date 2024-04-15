@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 });
 
 // Mount reservationRouter
-app.use("/api/v1/reservation", reservationRouter);
+app.use("https://mymernproject-4cdy.vercel.app/api/v1/reservation", reservationRouter);
 
 app.get("/", (req, res) => {
   console.log("Received request for /");
