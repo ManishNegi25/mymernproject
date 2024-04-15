@@ -1,5 +1,5 @@
 import app from "./app.js";
 
-app.listen(process.env.FRONTEND_URL, ()=>{
-    console.log(`SERVER HAS STARTED AT PORT ${process.env.FRONTEND_URL}`);
+app.listen(process.env.PORT, ()=>{
+    console.log(`SERVER HAS STARTED AT PORT ${process.env.PORT}`);
 })
