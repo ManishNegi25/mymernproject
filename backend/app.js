@@ -15,10 +15,12 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.static('public'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("https://mymernproject-4cdy.vercel.app/api/v1/reservation", reservationRouter);
+app.use("http://localhost:4000/api/v1/reservation", reservationRouter);
 app.get("/", (req, res, next)=>{return res.status(200).json({
   success: true,
   message: "HELLO WORLD AGAIN"
