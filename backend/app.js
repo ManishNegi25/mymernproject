@@ -8,14 +8,14 @@ import { dbConnection } from "./database/dbConnection.js";
 const app = express();
 dotenv.config({ path: "./config/config.env" });
 
-const corsOptions = {
-  origin: process.env.FRONTEND_URL,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-};
 
-app.use(cors(corsOptions));
+
+app.use(cors({
+origin:"https://mymernproject-4cdy.vercel.app",
+methods: ["GET", "POST", "PUT", "DELETE"],
+allowedHeaders: ["Content-Type", "Authorization"],
+credentials: true,
+}));
 
 app.use(express.static('public'));
 
