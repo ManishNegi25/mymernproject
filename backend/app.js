@@ -30,15 +30,11 @@ app.use((req, res, next) => {
 });
 
 // Mount reservationRouter
-app.use("https://mymernproject-4cdy.vercel.app/api/v1/reservation", reservationRouter);
-
-app.get("/", (req, res) => {
-  console.log("Received request for /");
-  return res.status(200).json({
-    success: true,
-    message: "HELLO WORLD AGAIN"
-  });
-});
+app.use("/api/v1/reservation", reservationRouter);
+app.get("/", (req, res, next)=>{return res.status(200).json({
+  success: true,
+  message: "HELLO WORLD AGAIN"
+})})
 
 dbConnection();
 
