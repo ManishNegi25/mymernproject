@@ -8,6 +8,10 @@ import { dbConnection } from "./database/dbConnection.js";
 const app = express();
 dotenv.config({ path: "./config/config.env" });
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Methods", '*');
+  next();
+});
 
 
 app.use(cors({
@@ -24,10 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.options("*", cors(corsOptions));
 // Set CORS headers for all routes
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  next();
-});
+
 
 // Mount reservationRouter
 app.use("/api/v1/reservation", reservationRouter);
