@@ -15,11 +15,9 @@ app.use((req, res, next) => {
 
 
 app.use(cors({
-origin:"https://mymernproject-4cdy.vercel.app",
-methods: ["GET", "POST", "PUT", "DELETE"],
-allowedHeaders: ["Content-Type", "Authorization"],
-credentials: true,
-}));
+  origin: process.env.CORS_ORIGIN,
+  credentials: true
+}))
 
 app.use(express.static('public'));
 
